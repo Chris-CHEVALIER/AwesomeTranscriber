@@ -1,10 +1,14 @@
 const analyzer = require("./analyzer");
-let test = "jouer moi l'album Randow Acces Memory";
-console.log(analyzer.requestAnalyzer(test));
-transcriber("./resources/elsa-mono.wav", res => {
-  //console.log(analyzer.requestAnalyzer(res));
+
+/*let test = "lance la playlist dsg"; // Lignes de test
+console.log(analyzer.requestAnalyzer(test));*/
+
+// le fichier ".wav" est retranscrit par l'API Google
+transcriber("./resources/vivaLaVida.wav", res => {
+  console.log(analyzer.requestAnalyzer(res)); // On envoi la string retournée à l'analyseur syntaxique
 });
 
+// Code fournit dans la documentation de l'API Google Speech pour la gérer la transcription audio
 function transcriber(audioFile, callback) {
   const fs = require("fs");
   const speech = require("@google-cloud/speech");
