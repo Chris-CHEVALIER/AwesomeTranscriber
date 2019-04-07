@@ -1,7 +1,17 @@
-const analyzer = require("./analyzer");
+var http = require("http");
 
-/*let test = "lance la playlist dsg"; // Lignes de test
-console.log(analyzer.requestAnalyzer(test));*/
+http
+  .createServer(function(req, res) {
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.write("Hello World!");
+    res.end();
+    console.log("Serveur accessible sur le port 3000.");
+  })
+  .listen(3000);
+
+/*const analyzer = require("./analyzer");
+let test = "lance la playlist dsg"; // Lignes de test
+console.log(analyzer.requestAnalyzer(test));
 
 // le fichier ".wav" est retranscrit par l'API Google
 transcriber("./resources/vivaLaVida.wav", res => {
@@ -40,4 +50,4 @@ function transcriber(audioFile, callback) {
     .catch(err => {
       console.error("ERROR:", err);
     });
-}
+}*/
